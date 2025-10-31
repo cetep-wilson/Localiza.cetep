@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content=>
+  
+
+
+
+
+  <header style="
+    background-color:#2c3e50;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px;
+    border-radius:0 0 20px 20px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+  ">
+    <img src="pavilhao5.jpg" alt="Logo" style="
+      width:45px;
+      height:45px;
+      border-radius:50%;
+      object-fit:cover;
+      margin-right:10px;
+      border:2px solid white;
+    ">
+    <h1 style="
+      color:white;
+      font-family:'Poppins', sans-serif;
+      font-size:26px;
+      font-weight:600;
+      letter-spacing:1px;
+    ">
+      localiza-cetep
+    </h1>
+  </header>
+
+
+
+
+<style>
+  :root {
+    --fundo: #f5f6fa;
+    --card: #fff;
+    --azul: #2c3e50;
+    --azul-claro: #3498db;
+    --amarelo: #f1c40f;
+  }
+
+  body {
+    font-family: "Poppins", sans-serif;
+    background: var(--fundo);
+    margin: 0;
+    padding: 0;
+    color: var(--azul);
+  }
+
+  header {
+    text-align: center;
+    padding: 20px;
+    background: var(--azul);
+    color: white;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .busca {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+  }
+
+  input[type="text"] {
+    width: 60%;
+    padding: 10px;
+    border: 2px solid var(--azul-claro);
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 10px 20px;
+    border: none;
+    background: var(--azul-claro);
+    color: white;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  button:hover {
+    background: #217dbb;
+  }
+
+  .pavilhao {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  .pavilhao h2 {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .imagem-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .imagem-container img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  /* Brilho das salas */
+  .sala {
+    position: absolute;
+    border-radius: 10px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  .sala.ativa {
+    opacity: 1;
+    animation: brilhoSuave 1.2s ease-in-out infinite alternate;
+  }
+
+  @keyframes brilhoSuave {
+    from {
+      box-shadow: 0 0 10px 4px rgba(255, 230, 0, 0.6);
+      background: rgba(255, 255, 0, 0.3);
+    }
+    to {
+      box-shadow: 0 0 20px 8px rgba(255, 255, 0, 0.9);
+      background: rgba(255, 255, 0, 0.7);
+    }
+  }
+
+  .mostrar-todas {
+    display: block;
+    margin: 0 auto 25px;
+    background: var(--amarelo);
+    color: #000;
+    font-weight: bold;
+  /* Zoom automático e manual */
+  .imagem-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease;
+    transform-origin: center center;
+  }
+
+  .imagem-container.zoom {
+    transform: scale(1.4);
+  }
+
+  .imagem-container img {
+    transition: transform 0.6s ease;
+    cursor: grab;
+  }
+</style>
+</head>
+<body>
+
+
+</header>
+
+<div class="container">
+  <div class="busca">
+    <input type="text" id="pesquisa" placeholder="Digite o nome da sala (ex: 1TIM1, Biblioteca)">
+    <button onclick="pesquisar()">🔍 Pesquisar</button>
+  </div>
+
+  <button class="mostrar-todas" onclick="mostrarTodas()">👁 Mostrar todas</button>
+
+  <!-- ACM 1 - Parte Superior -->
+  <div class="pavilhao">
+    <h2>ACM 1 — pavilhao (1° andar-parte de cima )</h2>
+    <div class="imagem-container">
+      <img src="pavilhao1.jpg" alt="Pavilhão 1 Superior">
+
+      <div class="sala" id="1TACM3" style="top:15%;left:12%;width:7%;height:15%;"></div>
+      <div class="sala" id="1TACM2" style="top:15%;left:21%;width:7%;height:15%;"></div>
+      <div class="sala" id="1TACM1" style="top:15%;left:29%;width:7%;height:15%;"></div>
+      <div class="sala" id="1TNDM3" style="top:15%;left:37%;width:7%;height:15%;"></div>
+      <div class="sala" id="3TND1" style="top:16%;left:44%;width:17%;height:14%;"></div>
+      <div class="sala" id="1TNDM1" style="top:17%;left:59%;width:10%;height:12%;"></div>
+      <div class="sala" id="1TAQM1" style="top:17%;left:68%;width:8%;height:12%;"></div>
+      <div class="sala" id="1TED2" style="top:15%;left:76%;width:8%;height:15%;"></div>
+    </div>
+  </div>
+
+  <!-- ACM 1 - Parte Inferior -->
+  <div class="pavilhao">
+    <h2>ACM 1 — parte inferio (  )</h2>
+    <div class="imagem-container">
+      <img src="pavilhao1.jpg" alt="Pavilhão 1 Inferior">
+
+      <div class="sala" id="1TED" style="top:45%;left:10%;width:10%;height:14%;"></div>
+      <div class="sala" id="1TIM3" style="top:45%;left:20%;width:13%;height:12%;"></div>
+      <div class="sala" id="1TIM2" style="top:45%;left:32%;width:13%;height:12%;"></div>
+      <div class="sala" id="1TIM1" style="top:46%;left:44%;width:13%;height:10%;"></div>
+      <div class="sala" id="LAB1" style="top:46%;left:60%;width:10%;height:11%;"></div>
+      <div class="sala" id="LAB2" style="top:47%;left:69%;width:9%;height:9%;"></div>
+      <div class="sala" id="2TQM1" style="top:45%;left:77%;width:6%;height:14%;"></div>
+      <div class="sala" id="1TAGLO" style="top:45%;left:82%;width:12%;height:15%;"></div>
+    </div>
+  </div>
+
+  <!-- ACM Térreo -->
+  <div class="pavilhao">
+    <h2>ACM — Térreo</h2>
+    <div class="imagem-container">
+      <img src="pavilhao3.jpg" alt="ACM Térreo">
+
+      <div class="sala" id="BIBLIOTECA" style="top:20%;left:16%;width:14%;height:16%;"></div>
+      <div class="sala" id="SALA_ROBOTICA" style="top:22%;left:31%;width:10%;height:10%;"></div>
+      <div class="sala" id="SALA_MANUTENCAO" style="top:22%;left:40%;width:10%;height:9%;"></div>
+      <div class="sala" id="2TACM1" style="top:22%;left:50%;width:10%;height:10%;"></div>
+      <div class="sala" id="2TACB2" style="top:23%;left:60%;width:10%;height:10%;"></div>
+      <div class="sala" id="LAB_ENFERMAGEM" style="top:22%;left:69%;width:15%;height:14%;"></div>
+      <div class="sala" id="LAB_NUTRICAO_RP" style="top:50%;left:13%;width:5%;height:12%;"></div>
+      <div class="sala" id="LAB_NUTRICAO" style="top:50%;left:40%;width:10%;height:10%;"></div>
+      <div class="sala" id="ORIENTACAO ESTAGIO" style="top:48%;left:71%;width:5%;height:12%;"></div>
+      <div class="sala" id="COORDENACAO" style="top:49%;left:76%;width:8%;height:9%;"></div>
+      <div class="sala" id="SALA PROFESSORES" style="top:49%;left:83%;width:9%;height:12%;"></div>
+    </div>
+  </div>
+
+  <!-- Pavilhão 3 -->
+  <div class="pavilhao">
+    <h2>LUIZ VIANA</h2>
+    <div class="imagem-container">
+      <img src="pavilhao2.jpg" alt="Pavilhão 3">
+       <div class="sala" id="QUADRA" style="top:20%;left:6%;width:20%;height:60%;"></div>
+    <div class="sala" id="3TIM1" style="top:52%;left:41%;width:7%;height:10%;"></div>
+    <div class="sala" id="3TIM4" style="top:52%;left:35%;width:7%;height:10%;"></div>
+    <div class="sala" id="3TIM2" style="top:52%;left:28%;width:7%;height:10%;"></div>
+    <div class="sala" id="3TIM3" style="top:71%;left:28%;width:7%;height:10%;"></div>
+    <div class="sala" id="2TIM3" style="top:71%;left:41%;width:7%;height:10%;"></div>
+    <div class="sala" id="LAB_ANALISES" style="top:48%;left:54%;width:13%;height:13%;"></div>
+    <div class="sala" id="SALA_MULTIMIDIA" style="top:71%;left:66%;width:7%;height:10%;"></div>
+
+    <!-- Novas 10 salas -->
+    <div class="sala" id="3TACM2" style="top:70%; left:78%; width:7%; height:10%;"></div>
+    <div class="sala" id="3TACM3" style="top:70%; left:90%; width:7%; height:10%;"></div>
+    <div class="sala" id="2TIM1" style="top:52%; left:90%; width:7%; height:10%;"></div>
+    <div class="sala" id="2TEDM1" style="top:52%; left:85%; width:7%; height:10%;"></div>
+    <div class="sala" id="3TACM1" style="top:52%; left:78%; width:7%; height:10%;"></div>
+    <div class="sala" id="3TEDM1" style="top:30%; left:79%; width:7%; height:10%;"></div>
+    <div class="sala" id="3TMAM1" style="top:30%; left:90%; width:7%; height:10%;"></div>
+    <div class="sala" id="3TAQM1" style="top:13%; left:91%; width:7%; height:10%;"></div>
+    <div class="sala" id="2TNDM1" style="top:13%; left:85%; width:7%; height:10%;"></div>
+    <div class="sala" id="2TIM2" style="top:13%; left:78%; width:7%; height:10%;"></div>
+
+  </div>
+</div>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+function pesquisar() {
+  const termo = document.getElementById("pesquisa").value.trim().toUpperCase();
+  const salas = document.querySelectorAll(".sala");
+
+  salas.forEach(s => s.classList.remove("ativa"));
+
+  if (termo) {
+    const alvo = document.getElementById(termo);
+    if (alvo) {
+      alvo.classList.add("ativa");
+      setTimeout(() => alvo.classList.remove("ativa"), 15000);
+    } else {
+      alert("Sala não encontrada!");
+    }
+  }
+}
+
+function mostrarTodas() {
+  const salas = document.querySelectorAll(".sala");
+  salas.forEach(s => {
+    s.classList.add("ativa");
+    setTimeout(() => s.classList.remove("ativa"), 15000);
+  });
+}
+</script>
+
+</body>
+</html>
